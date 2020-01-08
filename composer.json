@@ -1,0 +1,25 @@
+{
+  "name": "jkphl/muk-minimal",
+  "type": "typo3-cms-extension",
+  "description": "Minimal TYPO3 demo extension for MUK CMS lectures",
+  "homepage": "https://github.com/jkphl/TYPO3-ext-muk-minimal",
+  "license": "GPL-2.0+",
+  "authors": [
+    {
+      "name": "Joschi Kuphal",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Tollwerk\\MukMinimal\\": "Classes/"
+    }
+  },
+  "replace": {
+    "muk_minimal": "self.version",
+    "typo3-ter/muk_minimal": "self.version"
+  },
+  "require": {
+    "typo3/cms-core": "^10.0"
+  }
+}

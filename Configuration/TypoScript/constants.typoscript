@@ -1,0 +1,10 @@
+plugin.tx_mukminimal {
+    view {
+        # cat=plugin.tx_mukminimal/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:muk_minimal/Resources/Private/Templates/
+        # cat=plugin.tx_mukminimal/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:muk_minimal/Resources/Private/Partials/
+        # cat=plugin.tx_mukminimal/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:muk_minimal/Resources/Private/Layouts/
+    }
+}

@@ -1,0 +1,46 @@
+plugin.tx_mukminimal {
+    view {
+        templateRootPaths.0 = EXT:{extension.extensionKey}/Resources/Private/Templates/
+        templateRootPaths.1 = {$plugin.tx_mukminimal.view.templateRootPath}
+
+        partialRootPaths.0 = EXT:tw_glossary/Resources/Private/Partials/
+        partialRootPaths.1 = {$plugin.tx_mukminimal.view.partialRootPath}
+
+        layoutRootPaths.0 = EXT:tw_glossary/Resources/Private/Layouts/
+        layoutRootPaths.1 = {$plugin.tx_mukminimal.view.layoutRootPath}
+    }
+}
+
+
+page = PAGE
+page {
+    10 = FLUIDTEMPLATE
+    10 {
+        layoutRootPaths {
+            10 = EXT:muk_minimal/Resources/Private/Layouts
+        }
+
+        partialRootPaths {
+            10 = EXT:muk_minimal/Resources/Private/Partials
+        }
+
+        templateRootPaths {
+            10 = EXT:muk_minimal/Resources/Private/Templates/Page
+        }
+
+        templateName.stdWrap.cObject = CASE
+        templateName.stdWrap.cObject {
+            key.data = pagelayout
+
+            default = TEXT
+            default.value = Default
+
+            pagets__post = TEXT
+            pagets__post.value = Post
+        }
+    }
+
+    includeCSS {
+        mukminimal = EXT:muk_minimal/Resources/Public/Css/Custom.css
+    }
+}
