@@ -35,8 +35,8 @@ page {
             default = TEXT
             default.value = Default
 
-            pagets__post = TEXT
-            pagets__post.value = Post
+            1 = TEXT
+            1.value = Post
         }
     }
 
