@@ -1,17 +1,18 @@
+# Extension-Konfiguration
 plugin.tx_mukminimal {
     view {
-        templateRootPaths.0 = EXT:{extension.extensionKey}/Resources/Private/Templates/
+        templateRootPaths.0 = EXT:muk_minimal/Resources/Private/Templates/
         templateRootPaths.1 = {$plugin.tx_mukminimal.view.templateRootPath}
 
-        partialRootPaths.0 = EXT:tw_glossary/Resources/Private/Partials/
+        partialRootPaths.0 = EXT:muk_minimal/Resources/Private/Partials/
         partialRootPaths.1 = {$plugin.tx_mukminimal.view.partialRootPath}
 
-        layoutRootPaths.0 = EXT:tw_glossary/Resources/Private/Layouts/
+        layoutRootPaths.0 = EXT:muk_minimal/Resources/Private/Layouts/
         layoutRootPaths.1 = {$plugin.tx_mukminimal.view.layoutRootPath}
     }
 }
 
-
+# Definition eines PAGE-Objekts — es begründet das grundlegende Rendering der Website
 page = PAGE
 page {
     10 = FLUIDTEMPLATE
@@ -28,19 +29,42 @@ page {
             10 = EXT:muk_minimal/Resources/Private/Templates/Page
         }
 
+        # Der Name des zu verwendenden Fluid-Templates wird aus den Seiteneinstellungen ermittelt
         templateName.stdWrap.cObject = CASE
         templateName.stdWrap.cObject {
             key.data = pagelayout
 
+            # Alle anderen Backend-Layouts: Rendering mit dem Fluid-Template "Default"
             default = TEXT
             default.value = Default
 
+            # Backend-Layout mit der ID 1: Rendering mit dem Fluid-Template "Post"
             1 = TEXT
             1.value = Post
         }
     }
 
+    # Einbinden eines einzelnen CSS
     includeCSS {
         mukminimal = EXT:muk_minimal/Resources/Public/Css/Custom.css
+    }
+}
+
+# TypoScript-Objekt zum Rendern von Inhaltselementen (wird aus Fluid aufgerufen)
+lib.content = CONTENT
+lib.content {
+    table = tt_content
+    select {
+        orderBy = sorting
+        where.cObject = COA
+        where.cObject {
+            10 = TEXT
+            10 {
+                field = colPos
+                intval = 1
+                ifEmpty = 0
+                noTrimWrap = | AND colPos=||
+            }
+        }
     }
 }

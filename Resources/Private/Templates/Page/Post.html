@@ -1,9 +1,10 @@
 <html data-namespace-typo3-fluid="true" xmlns:f="https://xsd.helhum.io/ns/typo3/cms-fluid/master/ViewHelpers">
-    <!-- Use the default layout -->
+    <!-- Nutzen des Layouts "Page/Standard" -->
     <f:layout name="Standard"/>
 
-    <!-- Main page content -->
+    <!-- Rendern des Hauptinhalt -->
     <f:section name="Main">
-        Post rendering
+        <h1>Blogpost-Rendering</h1>
+        <f:cObject typoscriptObjectPath="lib.content" data="{colPos: 0}" />
     </f:section>
 </html>

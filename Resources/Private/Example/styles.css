@@ -1,0 +1,21 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+body > * {
+	max-width: 72em;
+	margin: 0 auto;
+	padding: 2em;
+}
+
+nav {
+	display: flex;
+}
+
+nav ol {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
