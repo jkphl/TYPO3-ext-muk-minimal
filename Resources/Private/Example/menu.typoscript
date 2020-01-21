@@ -1,9 +1,10 @@
-# Bibliothekselement namens "menu" vom Typ HMENU anlegen
-lib.menu = HMENU
-lib.menu {
+# Bibliothekselement namens "headermenu" vom Typ HMENU anlegen
+lib.headermenu = HMENU
+lib.headermenu {
 
     # Die erste Ebene des Menüs soll durch Texteinträge dargestellt werden (TMENU)
     1 = TMENU
+    1.expAll = 1
 
     # Nutzen und konfigurieren des Normalzustands (NO)
     1.NO = 1
@@ -11,7 +12,15 @@ lib.menu {
 
     # Nutzen und konfigurieren des aktiven Zustands (ACT)
     1.ACT = 1
-    1.ACT.wrapItemAndSub = <li>|</li>
+    1.ACT.wrapItemAndSub = <li class="active">|</li>
+
+    # Nutzen und konfigurieren Zustands, wenn der Menüpunkt Unterpunkte hat (IFSUB)
+    1.IFSUB = 1
+    1.IFSUB.wrapItemAndSub = <li class="has-submenu">|</li>
+
+    # Nutzen und konfigurieren Zustands, wenn der Menüpunkt Unterpunkte hat und der Menüpunkt aktiv ist (ACTIFSUB)
+    1.ACTIFSUB = 1
+    1.ACTIFSUB.wrapItemAndSub = <li class="has-submenu active">|</li>
 
     # Umschließen der gesamten ersten Ebene
     1.wrap = <ol class="level-1">|</ol>
@@ -25,4 +34,28 @@ lib.menu {
     # ... und wiederholen dasselbe für eine mögliche dritte Ebene
     3 < .1
     3.wrap = <ol class="level-3">|</ol>
+}
+
+# Bibliothekselement namens "footermenu" vom Typ HMENU anlegen
+lib.footermenu = HMENU
+lib.footermenu {
+    # Hier: Kein Menü über den kompletten Seitenbaum, sondern nur über das Verzeichnis mit der ID 8 (ggf. anpassen)
+    special = directory
+    special.value = 8
+
+    # Die erste Ebene des Menüs soll durch Texteinträge dargestellt werden (TMENU)
+    1 = TMENU
+
+    # Nutzen und konfigurieren des Normalzustands (NO)
+    1.NO = 1
+    1.NO.allWrap = <li>|</li>
+
+    # Nutzen und konfigurieren des aktiven Zustands (ACT)
+    1.ACT = 1
+    1.ACT.allWrap = <li class="active">|</li>
+
+    # Umschließen der gesamten ersten Ebene
+    1.wrap = <ol class="level-1">|</ol>
+
+    # Wir erwarten in diesem Menü keine weiteren Unterebenen, deshalb definierten wir hierfür kein Rendering
 }
