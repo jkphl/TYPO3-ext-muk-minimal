@@ -33,8 +33,53 @@
                     TYPO3-Seiten generiert werden.
                 </li>
                 <li>Dasselbe gilt für die Links in der Fußzeile (Doormat-Navigation).</li>
-                <li>Dieser Inhalt soll durch echte, in TYPO3 gepflegte Inhalte ersetzt werden, die sich je Seite
+                <li>Dieser Inhalt hier soll durch echte, in TYPO3 gepflegte Inhalte ersetzt werden, die sich je Seite
                     unterscheiden und übers Backend gepflegt werden können.
+                </li>
+            </ul>
+            <p>Der folgende, stichpunktartige Umsetzungsansatz gibt nur einen von vielen möglichen Wegen wieder.
+                Probiere ruhig andere Varianten aus!</p>
+
+            <h2>Backend-Seiten</h2>
+            <ul>
+                <li>Lege die Seiten im Backend an, die in den Menüs enthalten sein sollen.</li>
+                <li>Das Hauptmenü wird von der Wurzelseite aus gerendert (ggf. über mehrere Hierarchieebenen hinweg).
+                </li>
+                <li>Um die Seiten für das Menü im Fußbereich ("Doormat-Navigation") zu isolieren, bietet es sich an, sie
+                    in einen Ordner zu legen und das Menü dann aus dem Ordnerinhalt bilden zu lassen. Ordner selbst
+                    werden grundsätzlich nicht in Menüs aufgenommen.
+                </li>
+            </ul>
+
+            <h2>TypoScript</h2>
+            <ul>
+                <li>Kopiere den Inhalt der <code>Example/menu.typoscript</code> ans Ende deines
+                    Extension-Haupt-TypoScript-Template, um die beiden <code>lib</code>-Objekte
+                    <code>lib.headermenu</code> und <code>lib.footermenu</code> zu definieren.
+                </li>
+                <li>Ersetze ggf. die ID des Ordners im TypoScript, von dem die Doormat-Navigation gerendert werden soll.
+                    Du erfährst die ID durch Hovern mit der Maus über das Ordner-Icon im TYPO3-Seitenbaum.
+                </li>
+            </ul>
+
+            <h2>Fluid-Templates</h2>
+            <ul>
+                <li>Das Rendering beginnt mit <code>Templates/Page/Post.html</code>, welches das Fluid-Layout unter
+                    <code>Layouts/Page/Standard.html</code> nutzt.
+                </li>
+                <li>Im Layout wollen wir den <code>&lt;header&gt;</code> und <code>&lt;footer&gt;</code> mit den
+                    dynamischen Menüs befüllen. Die Menüs sollen von TypoScript gerendert werden (= Stärke von
+                    TypoScript).
+                </li>
+                <li>Anlegen von 2 neuen Partials im neuen Verzeichnis <code>Partials/Menue</code>, z.B. <code>Header.html</code>
+                    und <code>Footer.html</code>.
+                </li>
+                <li>Einbinden der Partials vom Layout aus via <code>&lt;f:render partial="..."/&gt;</code> (an den
+                    richtigen Stellen).
+                </li>
+                <li>In den Partials: Nutzen des <code>&lt;f:cObject&gt;</code>-ViewHelpers, um die passenden
+                    TypoScript-Objekte zum Rendern der Menüs einzubinden / rendern zu lassen. Vergiss das passende
+                    HTML-Markup für Navigationen nicht!
                 </li>
             </ul>
         </main>
