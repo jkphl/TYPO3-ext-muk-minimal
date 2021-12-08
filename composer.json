@@ -17,5 +17,10 @@
     ],
     "require": {
         "typo3/cms-core": "^11.0"
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "muk_minimal"
+        }
     }
 }
