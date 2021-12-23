@@ -1,26 +1,26 @@
 {
-    "name": "jkphl/muk-minimal",
-    "description": "Minimal TYPO3 demo extension for MUK CMS lectures",
-    "type": "typo3-cms-extension",
-    "homepage": "https://github.com/jkphl/TYPO3-ext-muk-minimal",
-    "license": "GPL-2.0+",
-    "autoload": {
-        "psr-4": {
-            "Tollwerk\\MukMinimal\\": "Classes/"
-        }
-    },
-    "authors": [
-        {
-            "name": "Joschi Kuphal",
-            "email": "joschi@tollwerk.de"
-        }
-    ],
-    "require": {
-        "typo3/cms-core": "^11.0"
-    },
-    "extra": {
-        "typo3/cms": {
-            "extension-key": "muk_minimal"
-        }
+  "name": "jkphl/muk-minimal",
+  "description": "Minimal TYPO3 demo extension for MUK CMS lectures",
+  "type": "typo3-cms-extension",
+  "homepage": "https://github.com/jkphl/TYPO3-ext-muk-minimal",
+  "license": "GPL-2.0+",
+  "autoload": {
+    "psr-4": {
+      "Tollwerk\\MukMinimal\\": "Classes/"
     }
+  },
+  "authors": [
+    {
+      "name": "Joschi Kuphal",
+      "email": "joschi@tollwerk.de"
+    }
+  ],
+  "require": {
+    "typo3/cms-core": "^11.0"
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "muk_minimal"
+    }
+  }
 }
